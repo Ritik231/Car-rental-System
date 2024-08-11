@@ -3,30 +3,30 @@ import java.util.List;
 import java.util.Scanner;
 
 class Car {
-    private String carId;
-    private String brand;
-    private String model;
+    private String CarId;
+    private String CarBrand;
+    private String CarModel;
     private double basePricePerDay;
     private boolean isAvailable;
 
     public Car(String carId, String brand, String model, double basePricePerDay) {
-        this.carId = carId;
-        this.brand = brand;
-        this.model = model;
+        this.CarId = carId;
+        this.CarBrand = brand;
+        this.CarModel = model;
         this.basePricePerDay = basePricePerDay;
         this.isAvailable = true;
     }
 
     public String getCarId() {
-        return carId;
+        return CarId;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getCarBrand() {
+        return CarBrand;
     }
 
-    public String getModel() {
-        return model;
+    public String getCarModel() {
+        return CarModel;
     }
 
     public double calculatePrice(int rentalDays) {
@@ -138,7 +138,7 @@ class CarRentalSystem {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("===== Car Rental System =====");
+            System.out.println("======== Car Rental System ========");
             System.out.println("1. Rent a Car");
             System.out.println("2. Return a Car");
             System.out.println("3. Exit");
@@ -155,7 +155,7 @@ class CarRentalSystem {
                 System.out.println("\nAvailable Cars:");
                 for (Car car : cars) {
                     if (car.isAvailable()) {
-                        System.out.println(car.getCarId() + " - " + car.getBrand() + " " + car.getModel());
+                        System.out.println(car.getCarId() + " - " + car.getCarBrand() + " " + car.getCarModel());
                     }
                 }
 
@@ -182,9 +182,9 @@ class CarRentalSystem {
                     System.out.println("\n== Rental Information ==\n");
                     System.out.println("Customer ID: " + newCustomer.getCustomerId());
                     System.out.println("Customer Name: " + newCustomer.getName());
-                    System.out.println("Car: " + selectedCar.getBrand() + " " + selectedCar.getModel());
+                    System.out.println("Car: " + selectedCar.getCarBrand() + " " + selectedCar.getCarModel());
                     System.out.println("Rental Days: " + rentalDays);
-                    System.out.printf("Total Price: ₹%.2f%n", totalPrice);
+                    System.out.printf("Total Price in Rupees: %.2f%n", totalPrice);
 
                     System.out.print("\nConfirm rental (Y/N): ");
                     String confirm = scanner.nextLine();
@@ -250,10 +250,12 @@ public class Main {
         Car car2 = new Car("A102", "Tata", "Harrier", 1500.0);
         Car car3 = new Car("A103", "Mercedez", "G-Wagon", 20000.0);
         Car car4 = new Car("A104", "Toyota", "Fortuner", 5000.0);
+        Car car5 = new Car("A105", "Volkswagon", "BMW", 10000.0);
         rentalSystem.addCar(car1);
         rentalSystem.addCar(car2);
         rentalSystem.addCar(car3);
         rentalSystem.addCar(car4);
+        rentalSystem.addCar(car5);
 
         while (true) {
             System.out.println("=================" + "Admin OR User" + "====================");
